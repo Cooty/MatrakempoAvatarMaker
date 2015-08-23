@@ -1,0 +1,850 @@
+/*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+body,
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+*:focus {
+    outline-color: #2da02a;
+}
+
+*:focus:active {
+    outline: none;
+}
+
+html {
+    color: #353535;
+    font: normal 62.5%/1 sans-serif;
+    background:  url(data:image/png;base64,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) repeat scroll 0% 0% #EBEBA3;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #BAE7F2;
+    text-shadow: none;
+}
+
+::selection {
+    background: #BAE7F2;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==== Header ==== */
+.app .app__header {
+    position: relative;
+    z-index: 100;
+    height: 50px;
+    padding-left: 70px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+    background-color: #000;
+}
+
+.app__header .header__logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.app__header .header__logo:focus {
+    outline: none;
+}
+
+.app__header .header__logo > svg {
+    display: block;
+    width: 100%;
+}
+
+.app__header .header__title {
+    height: 50px;
+    padding: 0 64px 0 0;
+    margin: 0;
+    font-size: 14pt;
+    line-height: 1.3;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.app__header .header__title > span {
+    white-space: normal;    
+}
+
+/* ==== Layout ==== */
+.container {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+}
+
+.container.in {
+    border: 2px dashed #3cbf39;
+}
+
+.upload-cta {
+    position: relative;
+    padding: 10px;
+    opacity: .8;
+    -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+}
+
+.upload-cta.loading {
+    opacity: 1;
+}
+
+.upload-cta.loading:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-cta.loading > h2,
+.upload-cta.loading > p {
+    opacity: .6 !important;
+}
+
+.upload-cta .icon-plus > .loader {
+    display: none;
+    width: 100%;
+}
+
+.upload-cta.loading .icon-plus > .loader {
+    display: block;
+}
+
+.upload-cta.loading .icon-plus > svg {
+    display: none;
+}
+
+.upload-cta .icon-plus {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem auto;
+}
+
+.upload-cta .icon-plus svg {
+    width: 100%;
+    height: 100%;
+    fill: #3CBF39; 
+}
+
+.upload-cta h2,
+.upload-cta p {
+    margin: 0;
+    padding: 0;
+}
+
+.upload-cta h2 {
+    font-size: 4rem;
+    margin-bottom: 1.2rem;
+}
+
+.upload-cta p {
+    font-size: 2rem;
+}
+
+.upload-cta p label {
+    border-bottom: 1px solid #3CBF39;
+    color: #3CBF39;
+    cursor: pointer;
+}
+
+.upload-cta p label:hover {
+    border-bottom: 0;
+}
+
+.in .upload-cta,
+.upload-cta:hover {
+    opacity: 1;
+}
+
+.in .upload-cta {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+}
+
+.selected-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    white-space: nowrap;
+}
+
+.canvas-preview {
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 720px) {
+    
+    .selected-image-container {
+        padding: 0;
+    }
+    
+}
+
+.selected-image-container .jcrop-holder {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.selected-image-container > img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Needed for IE, because it puts the width/height attributes on the image from fileReader */
+    width: auto !important;
+    height: auto !important;
+}
+
+/* ==== Webfont classes ==== */
+.wf.roboto {
+    font-family: 'Roboto', Tahoma, sans-serif;
+    font-weight: 400;
+}
+
+.wf.roboto-slab {
+    font-family: 'Roboto Slab', Georgia, serif;
+}
+
+.wf.roboto.bold,
+.wf.roboto-slab.bold {
+    font-weight: 700;
+}
+
+.wf.roboto-slab.light {
+    font-weight: 300;
+}
+
+/* ==== Buttons ==== */
+.buttons {
+    padding-top: 20px;
+    text-align: right;
+}
+
+.buttons .button {
+   vertical-align: top; 
+}
+
+.button {
+    height: 40px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 4px;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    -webkit-transition: background-color .3s ease;
+            transition: background-color .3s ease;    
+    -moz-user-select:       none;
+    -webkit-user-select:    none;
+    user-select:            none;
+}
+
+.button--icon .icon {
+    margin-right: 10px;
+}
+
+.button--icon .icon > svg {
+    width: 22px;
+    height: 22px;
+}
+
+a.button {
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.button.button--transparent {
+    background: transparent;
+    color: #3cbf39;
+    text-decoration: underline;
+}
+
+.button.button--transparent:hover,
+.button.button--transparent:focus {
+    text-decoration: none;
+}
+
+.buttons .button:first-child {
+    margin-right: 20px;
+}
+
+.ie .buttons .button:first-child {
+    margin-right: -20px;
+}
+
+.button.button--green {
+    background: #3cbf39;
+    color: #fff;
+}
+
+.button.button--green:hover,
+.button.button--green:focus {
+    background: #2da02a;
+}
+
+.button.button--animated {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    -webkit-transition: all .3s ease;
+            transition: all .3s ease;        
+}
+
+.button.button--animated.button--hidden {
+    opacity: 0;
+    -webkit-transform: scale(.2, .2);
+            transform: scale(.2, .2);        
+}
+
+.button.button--centered {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -63px;    
+}
+
+.container,
+.end-image {
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 1080px) {
+    
+    .button.button--centered {
+        left: auto;
+        right: 10px;
+        top: 50%;
+        margin: -20px 0 0 0;
+    }
+        
+}
+
+@media only screen and (max-width: 615px) {
+
+    .button.button--centered > span {
+        display: none;
+    }
+    
+    .button.button--centered .icon {
+        margin-right: 0; 
+    }
+    
+}
+
+/* ==== Loading layer and warning ==== */
+.loading-layer {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 url(../img/preloader-black.gif) no-repeat 50% 50%;
+    background-size: 32px 32px;
+    background-color: rgba(0, 0, 0, .95);
+    white-space: nowrap;
+}
+
+.warning {
+    max-width: 400px;
+    padding: 19px;
+    border: 1px solid #d3d362;
+    margin: 0 20px;
+    border-radius: 4px;
+    background-color: #EBEBA3;
+    font-size: 1.6rem;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.3;
+}
+
+.warning a {
+    color: #3cbf39;
+    text-decoration: none;
+    border-bottom: 1px solid #3cbf39; 
+}
+
+.warning a:hover,
+.warning a:focus {
+    border-bottom: 0;
+    outline: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .warning {
+        padding: 9px;
+        font-size: 1.3rem;
+    }
+    
+}
+
+.browsers {
+    padding-top: 8px;
+}
+
+.browsers .browsers__link {
+    margin: 5px 10px 0 0;
+}
+
+.browsers .browsers__link:last-child {
+    margin-right: 0;
+}
+
+.browsers .browsers__link .browsers__icon {
+    width: 37px;
+    height: 40px;
+    margin: 0 auto 6px auto;
+    background-image: url(../img/browsers.png);
+}
+
+.browsers .browsers__link .browsers__icon.ff {
+    background-position: -39px 0;
+}
+
+.browsers .browsers__link .browsers__icon.ch {
+    background-position: -1px 0;
+}
+
+.browsers .browsers__link .browsers__icon.sa {
+    background-position: -117px 0;
+}
+
+.browsers .browsers__link .browsers__icon.op {
+    background-position: -79px 0;
+}
+
+.browsers .browsers__link .browsers__icon.ie {
+    background-position: -157px 0;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+.blk {
+    display: block;
+}
+
+.blk-i {
+    display: inline-block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.v-centerize:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.v-centered {
+    vertical-align: middle;
+}
+
+/*
+ * Hide visually and from screen readers:
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.pos-r {
+    position: relative;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.hint {
+    padding: 10px 0 0 0;
+    margin: 0;
+    color: #5a5a5a;
+    font-size: 1.3rem;
+}
+
+.ie .hide-in-ie {
+    display: none;
+}
+
+.show-in-ie {
+    display: none;
+}
+
+.ie .show-in-ie {
+    display: block;
+}
+
+/* jquery.Jcrop.css v0.9.12 - MIT License */
+/*
+  The outer-most container in a typical Jcrop instance
+  If you are having difficulty with formatting related to styles
+  on a parent element, place any fixes here or in a like selector
+
+  You can also style this element if you want to add a border, etc
+  A better method for styling can be seen below with .jcrop-light
+  (Add a class to the holder and style elements for that extended class)
+*/
+.jcrop-holder {
+	direction: ltr;
+	text-align: left;
+	/* IE10 touch compatibility */
+	-ms-touch-action: none;
+}
+
+/* Selection Border */
+.jcrop-vline,
+.jcrop-hline {
+	background: #fff url(../img/jcrop.gif);
+	font-size: 0;
+	position: absolute;
+}
+.jcrop-vline {
+	height: 100%;
+	width: 1px !important;
+}
+.jcrop-vline.right {
+	right: 0;
+}
+.jcrop-hline {
+	height: 1px !important;
+	width: 100%;
+}
+.jcrop-hline.bottom {
+	bottom: 0;
+}
+/* Invisible click targets */
+.jcrop-tracker {
+	height: 100%;
+	width: 100%;
+	/* "turn off" link highlight */
+	-webkit-tap-highlight-color: transparent;
+	/* disable callout, image save panel */
+	-webkit-touch-callout: none;
+	/* disable cut copy paste */
+	-webkit-user-select: none;
+}
+/* Selection Handles */
+.jcrop-handle {
+	background-color: #333;
+	border: 1px #eee solid;
+	width: 7px;
+	height: 7px;
+	font-size: 1px;
+}
+.jcrop-handle.ord-n {
+	left: 50%;
+	margin-left: -4px;
+	margin-top: -4px;
+	top: 0;
+}
+.jcrop-handle.ord-s {
+	bottom: 0;
+	left: 50%;
+	margin-bottom: -4px;
+	margin-left: -4px;
+}
+.jcrop-handle.ord-e {
+	margin-right: -4px;
+	margin-top: -4px;
+	right: 0;
+	top: 50%;
+}
+.jcrop-handle.ord-w {
+	left: 0;
+	margin-left: -4px;
+	margin-top: -4px;
+	top: 50%;
+}
+.jcrop-handle.ord-nw {
+	left: 0;
+	margin-left: -4px;
+	margin-top: -4px;
+	top: 0;
+}
+.jcrop-handle.ord-ne {
+	margin-right: -4px;
+	margin-top: -4px;
+	right: 0;
+	top: 0;
+}
+.jcrop-handle.ord-se {
+	bottom: 0;
+	margin-bottom: -4px;
+	margin-right: -4px;
+	right: 0;
+}
+.jcrop-handle.ord-sw {
+	bottom: 0;
+	left: 0;
+	margin-bottom: -4px;
+	margin-left: -4px;
+}
+/* Dragbars */
+.jcrop-dragbar.ord-n,
+.jcrop-dragbar.ord-s {
+	height: 7px;
+	width: 100%;
+}
+.jcrop-dragbar.ord-e,
+.jcrop-dragbar.ord-w {
+	height: 100%;
+	width: 7px;
+}
+.jcrop-dragbar.ord-n {
+	margin-top: -4px;
+}
+.jcrop-dragbar.ord-s {
+	bottom: 0;
+	margin-bottom: -4px;
+}
+.jcrop-dragbar.ord-e {
+	margin-right: -4px;
+	right: 0;
+}
+.jcrop-dragbar.ord-w {
+	margin-left: -4px;
+}
+/* The "jcrop-light" class/extension */
+.jcrop-light .jcrop-vline,
+.jcrop-light .jcrop-hline {
+	background: #fff;
+	filter: alpha(opacity=70) !important;
+	opacity: .70!important;
+}
+.jcrop-light .jcrop-handle {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #000;
+	border-color: #fff;
+	border-radius: 3px;
+}
+/* The "jcrop-dark" class/extension */
+.jcrop-dark .jcrop-vline,
+.jcrop-dark .jcrop-hline {
+	background: #000;
+	filter: alpha(opacity=70) !important;
+	opacity: 0.7 !important;
+}
+.jcrop-dark .jcrop-handle {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #fff;
+	border-color: #000;
+	border-radius: 3px;
+}
+/* Simple macro to turn off the antlines */
+.solid-line .jcrop-vline,
+.solid-line .jcrop-hline {
+	background: #fff;
+}
+/* Fix for twitter bootstrap et al. */
+.jcrop-holder img,
+img.jcrop-preview {
+	max-width: none;
+}
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (max-width: 470px) {
+    
+    .app__header .header__title {
+        font-size: 11pt;    
+    }
+    
+}
+
+@media only screen and (max-width: 410px) {
+    
+    .upload-cta .icon-plus {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .upload-cta h2 {
+        font-size: 3rem;
+    }
+    
+    .upload-cta p {
+        font-size: 1.4rem;
+    }
+    
+}
+
+@media only screen and (max-width: 390px) {
+    
+    .app__header .header__title {
+        font-size: 9pt;    
+    }
+    
+    .app .app__header {
+        padding-left: 60px;    
+    }
+    
+}
